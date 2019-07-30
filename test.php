@@ -1,12 +1,14 @@
 <?php
+
+header("Access-Control-Allow-Origin: *");
 /*
 $intro = 'Hello world 2';
 echo $intro;
 */
 
 
-$randomNumberOne = rand(0,5);
-$randomNumberTwo = rand(0,5);
+$randomNumberOne = rand(0,30);
+$randomNumberTwo = rand(0,30);
 
 
 /*
@@ -19,22 +21,25 @@ echo $randomNumberTwo;
 
 $arrayBig = [];
 
+$arrayQuantity =  $_GET['numbers'];
 
 
-for ( $i = 0; $i < 6 ; $i++) {
-    $array = array(rand(0,5),rand(0,5));
-
+for ( $i = 0; $i < $arrayQuantity ; $i++) {
+    
+   
+    $array = [$i,rand(0,20)];
+    
     array_push($arrayBig,$array);
     
-    print_r($arrayBig);
+    // print_r($arrayBig);
 }
 
 
 
 // print_r($array);
 
-$myObj -> randomnumber = $arrayBig;
-$myJSON = json_encode($myObj);
+$myJSON = json_encode($arrayBig);
 
 echo $myJSON;
+
 ?>
